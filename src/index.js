@@ -2,24 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Sidebar from "./Components/Sizebar";
-import Dayslot from "./Components/Dayslot";
-import Overallgrid from "./Components/OverallGrid";
-import CalendarGrid from "./Components/CalendarGrid";
 
-//
-
-let all_slots = [
-  { day_num: 0, task_num: 0, finished_num: 0 },
-  { day_num: 0, task_num: 0, finished_num: 0 },
-];
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Overallgrid>
-      <Sidebar />
-      <CalendarGrid all_slots={all_slots} />
-    </Overallgrid>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

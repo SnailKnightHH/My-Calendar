@@ -1,0 +1,18 @@
+.TodoPage {
+  display: grid;
+  grid-template-columns: repeat(2, 50fr);
+  
+}
+
+.Timed_ul {
+  list-style-type: none;
+}
+
+.Timed_text_area {
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  max-width: 100%;
+  vertical-align: top;
+}
