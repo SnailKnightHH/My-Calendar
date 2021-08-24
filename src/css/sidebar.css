@@ -1,0 +1,39 @@
+.userImage {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.sidebar {
+  background-color: #e3f2fd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+.sidebar-ul {
+  width: 100%;
+}
+
+.sidebar-item {
+  margin-top: 2rem;
+  background-color: white;
+  width: 90%;
+}
+
+.sidebar-item .sidebar-btn {
+  border: none;
+  color: black;
+  background: white;
+  text-align: left;
+  width: 100%;
+  transition: background 0.2s ease-out;
+}
+
+.sidebar-item .sidebar-btn:hover {
+  background: rgb(13, 110, 253);
+}

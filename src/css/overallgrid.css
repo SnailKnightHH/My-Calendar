@@ -1,0 +1,4 @@
+.overallgrid {
+  display: grid;
+  grid-template: 100vh / 16% 84%;
+}

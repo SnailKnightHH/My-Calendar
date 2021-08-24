@@ -1,0 +1,14 @@
+.day_slot {
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid black;
+}
+
+.day_slot :first-child {
+  align-self: flex-end;
+}
+
+.CalendarGrid {
+  display: grid;
+  grid-template: repeat(5, 20fr) / repeat(7, 12fr);
+}
