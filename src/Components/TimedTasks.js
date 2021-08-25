@@ -2,21 +2,6 @@ import "../css/TodoPage.css";
 import TimeSlot from "./TimeSlot";
 
 const TimedTasks = (props) => {
-  const updateTimedTask = (time, event) => {
-    console.log(time);
-    for (let i = 0; i < props.timed_todo_list.length; i++) {
-      if (props.timed_todo_list[i].time === time) {
-        props.timed_todo_list[i].task = event.target.value;
-        console.log(props.timed_todo_list[i].task);
-        break;
-      }
-    }
-    localStorage.setItem(
-      "timed_todo_list",
-      JSON.stringify(props.timed_todo_list)
-    );
-  };
-
   return (
     <ul className="Timed_ul">
       <TimeSlot id="05:00" updateTimedTask={props.updateTimedTask} />

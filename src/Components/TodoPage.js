@@ -35,15 +35,18 @@ let timed_todo_list = [
 let task_num = 0;
 
 const TodoPage = (props) => {
+  const thisTasksArrName = "tasksArr" + props.id;
+  const thisTimed_todo_list = "timed_todo_list" + props.id;
+
   const [tasksArr, setTasksArr] = useState([]);
 
   useEffect(() => {
-    let new_tasksArr = JSON.parse(localStorage.getItem("tasksArr"));
+    let new_tasksArr = JSON.parse(localStorage.getItem(thisTasksArrName));
     if (new_tasksArr != null) {
       setTasksArr(new_tasksArr);
       task_num = localStorage.length;
     }
-    let new_timedTasks = JSON.parse(localStorage.getItem("timed_todo_list"));
+    let new_timedTasks = JSON.parse(localStorage.getItem(thisTimed_todo_list));
     if (new_timedTasks != null) {
       // for (let i = 0; i < new_timedTasks.length; i++) {
       //   for (let j = 0; j < timed_todo_list.length; j++) {
@@ -71,7 +74,7 @@ const TodoPage = (props) => {
       return [...prevTasksArr, new_task];
     });
 
-    localStorage.setItem("tasksArr", JSON.stringify(tasksArr));
+    localStorage.setItem(thisTasksArrName, JSON.stringify(tasksArr));
     console.log(`adding task: ${tasksArr.length}`);
     // console.log("task_num: " + task_num);
     task_num++;
@@ -97,7 +100,7 @@ const TodoPage = (props) => {
         break;
       }
     }
-    localStorage.setItem("timed_todo_list", JSON.stringify(timed_todo_list));
+    localStorage.setItem(thisTimed_todo_list, JSON.stringify(timed_todo_list));
   };
 
   return (
