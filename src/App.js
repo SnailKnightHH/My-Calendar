@@ -24,13 +24,29 @@ function App() {
     setError(null);
   };
 
+  const [goToTasks, setGoToTasks] = useState(false);
+
+  const switchToTaskLisks = () => {
+    setGoToTasks(true);
+  };
+
+  const switchToCalendar =() => {
+    setGoToTasks(false);
+  }
+
   return (
     <React.Fragment>
       <Overallgrid>
         <Sidebar />
-        <CalendarGrid all_slots={all_slots} />
+        {!goToTasks && (
+          <CalendarGrid
+            all_slots={all_slots}
+            switchToTaskLisks={switchToTaskLisks}
+          />
+        )}
+        {goToTasks && <TodoPage detectError={detectError} goToCalendar={switchToCalendar}/>}
+        {error && <ErrorModel onConfirm={clearError} />}
       </Overallgrid>
-
     </React.Fragment>
   );
 }

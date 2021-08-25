@@ -15,3 +15,10 @@
   z-index: 100;
   overflow: hidden;
 }
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}

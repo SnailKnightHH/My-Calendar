@@ -1,7 +1,12 @@
 .TodoPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.TodoPageGrid {
   display: grid;
+  margin-top: 1rem;
   grid-template-columns: repeat(2, 50fr);
-  
 }
 
 .Timed_ul {
@@ -15,4 +20,10 @@
   box-shadow: 1px 1px 1px #999;
   max-width: 100%;
   vertical-align: top;
+}
+
+.Back_btn {
+  position: relative;
+  margin-top: 3rem;
+  align-self: center;
 }

@@ -7,7 +7,6 @@ const AddUntimedTask = (props) => {
   const addTaskHandler = (event) => {
     event.preventDefault();
     if (enteredTask.trim().length === 0) {
-      console.log("arrived");
       props.detectError("Empty Input");
       return;
     }
