@@ -21,11 +21,6 @@ const CalendarGrid = (props) => {
             task_num={slot.task_num}
             finished_num={slot.finished_num}
             renderCalendar={ifDisplayCalendar}
-            goToTasks={props.goToTasks}
-            error={props.error}
-            detectError={props.detectError}
-            switchToCalendar={props.switchToCalendar}
-            clearError={props.clearError}
             getKeyOfDaySlot={props.getKeyOfDaySlot}
           />
         );
@@ -34,4 +29,9 @@ const CalendarGrid = (props) => {
   );
 };
 //props.goToTasks  props.error  props.detectError props.switchToCalendar props.clearError
+// goToTasks={props.goToTasks}
+//             error={props.error}
+//             detectError={props.detectError}
+//             switchToCalendar={props.switchToCalendar}
+//             clearError={props.clearError}
 export default CalendarGrid;

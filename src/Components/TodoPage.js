@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import UntimedTasks from "./UntimedTasks";
 import AddUntimedTask from "./AddUntimedTask";
 import TimedTasks from "./TimedTasks";
+import useDidMountEffect from "./useDidMountEffect";
 import "../css/TodoPage.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -32,9 +33,24 @@ let timed_todo_list = [
   { time: "04:00", task: "" },
 ];
 
-let task_num = 0;
-
 const TodoPage = (props) => {
+  // let timed_task_num = 0;
+  // let untimed_task_num = 0;
+  let finished_num = 0;
+
+  const [timed_task_num, setTimed_task_num] = useState(0);
+  const [untimed_task_num, setUntimed_task_num] = useState(0);
+
+  const updateTaskNum = () => {
+    let timed_task_num = 0;
+    for (let i = 0; i < timed_todo_list.length; i++) {
+      if (timed_todo_list[i].task != "") {
+        timed_task_num++;
+      }
+    }
+    return timed_task_num;
+  };
+
   const thisTasksArrName = "tasksArr" + props.id;
   const thisTimed_todo_list = "timed_todo_list" + props.id;
 
@@ -42,20 +58,14 @@ const TodoPage = (props) => {
 
   useEffect(() => {
     let new_tasksArr = JSON.parse(localStorage.getItem(thisTasksArrName));
+    //console.log(new_tasksArr);
     if (new_tasksArr != null) {
       setTasksArr(new_tasksArr);
-      task_num = localStorage.length;
+      setUntimed_task_num(new_tasksArr.length);
+      //  update_task_num.current = false;
     }
     let new_timedTasks = JSON.parse(localStorage.getItem(thisTimed_todo_list));
     if (new_timedTasks != null) {
-      // for (let i = 0; i < new_timedTasks.length; i++) {
-      //   for (let j = 0; j < timed_todo_list.length; j++) {
-      //     if (timed_todo_list[j].time === new_timedTasks[i].time) {
-      //       timed_todo_list[j].task = new_timedTasks[i].task[i];
-      //       break;
-      //     }
-      //   }
-      // }
       timed_todo_list = [...new_timedTasks];
       for (let i = 0; i < new_timedTasks.length; i++) {
         if (new_timedTasks[i].task.length > 0) {
@@ -63,22 +73,47 @@ const TodoPage = (props) => {
             new_timedTasks[i].task;
         }
       }
+      setTimed_task_num(updateTaskNum());
     }
+    //console.log(untimed_task_num + " " + timed_task_num);
+    props.updateSlotInfo(
+      untimed_task_num + timed_task_num,
+      finished_num,
+      props.id
+    );
   }, []);
 
   const addingTask = (task_str) => {
     const new_task = { id: Math.random().toString(), task: task_str };
-    console.log(tasksArr);
 
     setTasksArr((prevTasksArr) => {
       return [...prevTasksArr, new_task];
     });
-
-    localStorage.setItem(thisTasksArrName, JSON.stringify(tasksArr));
-    console.log(`adding task: ${tasksArr.length}`);
-    // console.log("task_num: " + task_num);
-    task_num++;
+    // console.log(tasksArr);
+    // task_num++;
+    // localStorage.setItem(thisTasksArrName, JSON.stringify(tasksArr));
+    // console.log(`adding task: ${tasksArr.length}`);
   };
+
+  useDidMountEffect(() => {
+    //console.log(JSON.stringify(tasksArr));
+    localStorage.setItem(thisTasksArrName, JSON.stringify(tasksArr));
+    setUntimed_task_num(tasksArr.length);
+    // console.log(tasksArr.length);
+    // console.log(untimed_task_num);
+    // console.log(untimed_task_num + " " + timed_task_num);
+    // FOR SOME REASON untimed_task_num IS NOT UPDATED IMMEDIATELY
+    props.updateSlotInfo(
+      tasksArr.length + timed_task_num,
+      finished_num,
+      props.id
+    );
+  }, [tasksArr]);
+  //! this was originally inside addingTask function, but
+  //! since useState is asynchronous, the value is not updated immediately
+  //! thus, useEffect is used to cope with this
+  //! this custom hook is to prevent useEffect hook run on the initial render, which
+  //! will happen regardless of the dependencies
 
   const has_error = (if_has_error) => {
     props.detectError(if_has_error);
@@ -88,23 +123,36 @@ const TodoPage = (props) => {
     props.goToCalendar();
   };
 
+  const clearThisEntry = () => {
+    localStorage.removeItem(thisTasksArrName);
+    localStorage.removeItem(thisTimed_todo_list);
+    const message = "Entry Cleared\nRefresh to See Changes";
+    alert(message);
+  };
+
   const updateTimedTask = (time, event) => {
-    console.log(time);
-    console.log(timed_todo_list);
-    //let new_timed_todo_list = JSON.parse(localStorage.getItem("timed_todo_list"));
     for (let i = 0; i < timed_todo_list.length; i++) {
       if (timed_todo_list[i].time === time) {
         timed_todo_list[i].task = event.target.value;
-        console.log(timed_todo_list[i].task);
-        console.log(timed_todo_list);
         break;
       }
     }
     localStorage.setItem(thisTimed_todo_list, JSON.stringify(timed_todo_list));
+    setTimed_task_num(updateTaskNum());
+    //console.log(untimed_task_num + " " + timed_task_num);
+    props.updateSlotInfo(
+      timed_task_num + untimed_task_num,
+      finished_num,
+      props.id
+    );
   };
 
   return (
     <div className="TodoPage">
+      <div className="TodoPageTitle">
+        <h1 className="title">Schedule</h1>
+        <h1 className="title">Agenda</h1>
+      </div>
       <div className="TodoPageGrid">
         <TimedTasks
           timed_todo_list={timed_todo_list}
@@ -117,9 +165,12 @@ const TodoPage = (props) => {
         </div>
       </div>
 
-      <div className="Back_btn">
-        <button class="btn btn-primary " onClick={goBackToCalendar}>
+      <div className="buttons">
+        <button class="btn btn-primary Back_btn" onClick={goBackToCalendar}>
           Back
+        </button>
+        <button class="btn btn-primary clear_btn" onClick={clearThisEntry}>
+          Clear
         </button>
       </div>
     </div>

@@ -6,14 +6,14 @@ import Overallgrid from "./Components/OverallGrid";
 import CalendarGrid from "./Components/CalendarGrid";
 import TodoPage from "./Components/TodoPage";
 import ErrorModel from "./Components/ErrorModel";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  let all_slots = [
+  const [allSlots, setAllSlots] = useState([
     { day_num: 0, task_num: 0, finished_num: 0 },
     { day_num: 0, task_num: 0, finished_num: 0 },
     { day_num: 0, task_num: 0, finished_num: 0 },
-  ];
+  ]);
 
   const [error, setError] = useState(null);
 
@@ -27,13 +27,19 @@ function App() {
 
   const [goToTasks, setGoToTasks] = useState(false);
 
-  const switchToTaskLisks = () => {
-    console.log("switchToTaskLisks triggered");
-    setGoToTasks(true);
+  const switchToTaskLisks = (ifRender) => {
+    setGoToTasks(ifRender);
   };
 
   const switchToCalendar = () => {
     setGoToTasks(false);
+  };
+
+  const updateSlotInfo = (task_num, finished_num, id) => {
+    let newAllSlots = [...allSlots];
+    newAllSlots[id].task_num = task_num;
+    newAllSlots[id].finished_num = finished_num;
+    setAllSlots(newAllSlots);
   };
 
   let all_TodoPages = [
@@ -41,52 +47,51 @@ function App() {
       detectError={detectError}
       goToCalendar={switchToCalendar}
       id="0"
+      updateSlotInfo={updateSlotInfo}
     />,
     <TodoPage
       detectError={detectError}
       goToCalendar={switchToCalendar}
       id="1"
+      updateSlotInfo={updateSlotInfo}
     />,
     <TodoPage
       detectError={detectError}
       goToCalendar={switchToCalendar}
       id="2"
+      updateSlotInfo={updateSlotInfo}
     />,
   ];
 
   const [key, setkey] = useState(false);
 
   const getKeyOfDaySlot = (id) => {
-    console.log(id);
-    console.log(all_TodoPages[0]);
     setkey(id);
   };
 
-  
+  // useEffect(() => {
+  //   console.log("I'm here");
+  //   for (let i = 0; i < all_TodoPages.length; i++) {
+  //     setGoToTasks(true);
+  //     // <TodoPage
+  //     //   detectError={detectError}
+  //     //   goToCalendar={switchToCalendar}
+  //     //   id={key}
+  //     //   updateSlotInfo={updateSlotInfo}
+  //     // />;
+  //    // all_TodoPages[key];
+  //       setkey((prevKey) => prevKey + 1);
+  //       setGoToTasks(false);
+  //   }
+  // }, []);
 
   return (
     <Overallgrid>
       <Sidebar />
-      {/* {!goToTasks && (
-        <CalendarGrid
-          all_slots={all_slots}
-          switchToTaskLisks={switchToTaskLisks}
-          goToTasks={goToTasks}
-          error={error}
-          detectError={detectError}
-          switchToCalendar={switchToCalendar}
-          clearError={clearError}
-        />
-      )} */}
       {!goToTasks && (
         <CalendarGrid
-          all_slots={all_slots}
+          all_slots={allSlots}
           switchToTaskLisks={switchToTaskLisks}
-          goToTasks={goToTasks}
-          error={error}
-          detectError={detectError}
-          switchToCalendar={switchToCalendar}
-          clearError={clearError}
           getKeyOfDaySlot={getKeyOfDaySlot}
         />
       )}
