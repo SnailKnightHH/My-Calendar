@@ -13,13 +13,13 @@ const Dayslot = (props) => {
     <React.Fragment>
       {!props.goToTasks && (
         <button
-          class="day_slot"
+          className="day_slot"
           onClick={switchToTaskLisks}
           style={{ background: "white" }}
         >
           <h2>{props.day_num}</h2>
-          <h2>Tasks: {props.task_num}</h2>
-          <h2>Finished: {props.finished_num}</h2>
+          <h2 className="day_slot_text">Tasks: {props.task_num}</h2>
+          <h2 className="day_slot_text">Finished: {props.finished_num}</h2>
         </button>
       )}
 

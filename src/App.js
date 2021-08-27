@@ -6,10 +6,43 @@ import Overallgrid from "./Components/OverallGrid";
 import CalendarGrid from "./Components/CalendarGrid";
 import TodoPage from "./Components/TodoPage";
 import ErrorModel from "./Components/ErrorModel";
+import WeekdaysBar from "./Components/WeekdaysBar";
 import React, { useState, useEffect } from "react";
 
 function App() {
   const [allSlots, setAllSlots] = useState([
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 1, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
+    { day_num: 0, task_num: 0, finished_num: 0 },
     { day_num: 0, task_num: 0, finished_num: 0 },
     { day_num: 0, task_num: 0, finished_num: 0 },
     { day_num: 0, task_num: 0, finished_num: 0 },
@@ -61,6 +94,198 @@ function App() {
       id="2"
       updateSlotInfo={updateSlotInfo}
     />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="3"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="4"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="5"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="6"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="7"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="8"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="9"
+      updat9eSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="10"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="11"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="12"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="13"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="14"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="15"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="16"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="17"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="18"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="19"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="20"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="21"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="22"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="23"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="24"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="25"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="26"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="27"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="28"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="29"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="30"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="31"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="32"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="33"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendar}
+      id="34"
+      updateSlotInfo={updateSlotInfo}
+    />,
   ];
 
   const [key, setkey] = useState(false);
@@ -96,6 +321,7 @@ function App() {
         />
       )}
       {goToTasks && all_TodoPages[key]}
+      {/* {goToTasks && all_TodoPages[9]} */}
       {error && <ErrorModel onConfirm={clearError} />}
     </Overallgrid>
   );

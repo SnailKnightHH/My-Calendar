@@ -1,7 +1,16 @@
+.WeekDay {
+  border: 0.1rem solid black;
+  margin-bottom: 0;
+}
+
 .day_slot {
   display: flex;
   flex-direction: column;
   border: 0.1rem solid black;
+}
+
+.day_slot_text {
+  font-size: x-large;
 }
 
 .day_slot :first-child {
@@ -10,5 +19,5 @@
 
 .CalendarGrid {
   display: grid;
-  grid-template: repeat(5, 20fr) / repeat(7, 12fr);
+  grid-template: 10fr repeat(5, 18fr) / repeat(7, 12fr);
 }

@@ -1,5 +1,6 @@
 import "../css/calendar.css";
 import Dayslot from "./Dayslot";
+import WeekdaysBar from "./WeekdaysBar";
 import { useState } from "react";
 
 // const CalendarGrid = props => {
@@ -12,6 +13,7 @@ const CalendarGrid = (props) => {
 
   return (
     <div className="CalendarGrid">
+      <WeekdaysBar />
       {props.all_slots.map((slot, index) => {
         return (
           <Dayslot
