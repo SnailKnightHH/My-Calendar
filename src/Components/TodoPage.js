@@ -39,8 +39,9 @@ const TodoPage = (props) => {
   let finished_num = 0;
 
   const [timed_task_num, setTimed_task_num] = useState(0);
-
   const [untimed_task_num, setUntimed_task_num] = useState(0);
+  const [finished_task_num, setFinished_task_num] = useState(0);
+
   const [timed_todo_list, setTimed_todo_list] = useState([
     { time: "05:00", task: "" },
     { time: "06:00", task: "" },
@@ -183,6 +184,17 @@ const TodoPage = (props) => {
     );
   };
 
+  const updateFinished = (id) => {
+    console.log(id);
+    //  if (document.getElementById(id) != null) {
+    // if (document.getElementById(id)[1].checked) {
+    //   alert("Checked");
+    // }
+    //  } else {
+    //    console.log("null");
+    //  }
+  };
+
   return (
     <div className="TodoPage">
       <div className="TodoPageTitle">
@@ -193,6 +205,7 @@ const TodoPage = (props) => {
         <TimedTasks
           timed_todo_list={timed_todo_list}
           updateTimedTask={updateTimedTask}
+          updateFinished={updateFinished}
         />
 
         <div>
@@ -202,10 +215,10 @@ const TodoPage = (props) => {
       </div>
 
       <div className="buttons">
-        <button class="btn btn-primary Back_btn" onClick={goBackToCalendar}>
+        <button className="btn btn-primary Back_btn" onClick={goBackToCalendar}>
           Back
         </button>
-        <button class="btn btn-primary clear_btn" onClick={clearThisEntry}>
+        <button className="btn btn-primary clear_btn" onClick={clearThisEntry}>
           Clear
         </button>
       </div>

@@ -1,0 +1,30 @@
+.UserPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userPageGrid {
+  display: grid;
+  grid-template: repeat(2, 20fr) repeat(3, 30fr) / repeat(2, 50fr);
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+.userTextArea,
+.userInputField {
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.UserPageEntity {
+  margin-top: 1rem;
+}
+
+.UserPageBtn {
+  margin-top: 4rem;
+}

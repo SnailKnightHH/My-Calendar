@@ -7,6 +7,8 @@ import CalendarGrid from "./Components/CalendarGrid";
 import TodoPage from "./Components/TodoPage";
 import ErrorModel from "./Components/ErrorModel";
 import WeekdaysBar from "./Components/WeekdaysBar";
+import User from "./Components/User";
+import AboutPage from "./Components/AboutPage";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -62,6 +64,29 @@ function App() {
 
   const switchToTaskLisks = (ifRender) => {
     setGoToTasks(ifRender);
+  };
+
+  const [goToUser, setGoToUser] = useState(false);
+
+  const userCalendarSwitch = (ifRender) => {
+    setGoToUser(ifRender);
+    if (!(!goToTasks && !goToUser && !goToAbout)) {
+      setGoToAbout(!ifRender);
+    }
+  };
+
+  const [goToAbout, setGoToAbout] = useState(false);
+
+  const AboutCalendarSwitch = (ifRender) => {
+    setGoToAbout(ifRender);
+    if (!(!goToTasks && !goToUser && !goToAbout)) {
+      setGoToUser(ifRender);
+    }
+  };
+
+  const UserAboutSwitch = (ifRender) => {
+    setGoToAbout(ifRender);
+    setGoToUser(!ifRender);
   };
 
   const switchToCalendar = () => {
@@ -312,8 +337,11 @@ function App() {
 
   return (
     <Overallgrid>
-      <Sidebar />
-      {!goToTasks && (
+      <Sidebar
+        switchToUser={userCalendarSwitch}
+        switchToAbout={AboutCalendarSwitch}
+      />
+      {!goToTasks && !goToUser && !goToAbout && (
         <CalendarGrid
           all_slots={allSlots}
           switchToTaskLisks={switchToTaskLisks}
@@ -323,6 +351,8 @@ function App() {
       {goToTasks && all_TodoPages[key]}
       {/* {goToTasks && all_TodoPages[9]} */}
       {error && <ErrorModel onConfirm={clearError} />}
+      {goToUser && !goToAbout && <User goBack={userCalendarSwitch} />}
+      {goToAbout && !goToUser && <AboutPage />}
     </Overallgrid>
   );
 }

@@ -4,30 +4,150 @@ import TimeSlot from "./TimeSlot";
 const TimedTasks = (props) => {
   return (
     <ul className="Timed_ul">
-      <TimeSlot id="05:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="06:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="07:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="08:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="09:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="10:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="11:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="12:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="13:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="14:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="15:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="16:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="17:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="18:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="19:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="20:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="21:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="22:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="23:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="24:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="01:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="02:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="03:00" updateTimedTask={props.updateTimedTask} />
-      <TimeSlot id="04:00" updateTimedTask={props.updateTimedTask} />
+      <TimeSlot
+        id="05:00"
+        checkboxid="0500"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="06:00"
+        checkboxid="0600"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="07:00"
+        checkboxid="0700"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="08:00"
+        checkboxid="0800"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="09:00"
+        checkboxid="0900"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="10:00"
+        checkboxid="1000"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="11:00"
+        checkboxid="1100"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="12:00"
+        checkboxid="1200"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="13:00"
+        checkboxid="1300"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="14:00"
+        checkboxid="1400"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="15:00"
+        checkboxid="1500"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="16:00"
+        checkboxid="1600"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="17:00"
+        checkboxid="1700"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="18:00"
+        checkboxid="1800"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="19:00"
+        checkboxid="1900"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="20:00"
+        checkboxid="2000"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="21:00"
+        checkboxid="2100"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="22:00"
+        checkboxid="2200"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="23:00"
+        checkboxid="2300"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="24:00"
+        checkboxid="2400"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="01:00"
+        checkboxid="0100"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="02:00"
+        checkboxid="0200"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="03:00"
+        checkboxid="0300"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
+      <TimeSlot
+        id="04:00"
+        checkboxid="0400"
+        updateTimedTask={props.updateTimedTask}
+        updateFinished={props.updateFinished}
+      />
     </ul>
   );
 };

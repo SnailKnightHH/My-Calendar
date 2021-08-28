@@ -13,6 +13,12 @@ const TimeSlot = (props) => {
         className="Timed_text_area"
         onChange={(e) => props.updateTimedTask(props.id, e)}
       ></textarea>
+      <input
+        type="checkbox"
+        name={props.checkboxid}
+        id={props.id}
+        onChange={props.updateFinished(props.id)}
+      />
     </li>
   );
 };
