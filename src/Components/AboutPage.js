@@ -26,7 +26,7 @@ const AboutPage = (props) => {
       </p>
       <img
         src={DailyPlannerReference}
-        alt="Daily Planner Reference Photo"
+        alt="Daily Planner Reference"
         className="DailyPlannerImage"
       />
       <p>Picture of the Daily Planner That I Referenced</p>

@@ -1,17 +1,6 @@
 import "../css/TodoPage.css";
 
 const TimeSlot = (props) => {
-  const updateFinished = (id) => {
-    console.log("here" + id);
-    if (document.getElementById(id) != null) {
-      if (document.getElementById(id).checked) {
-        alert("Checked");
-      }
-    } else {
-      console.log("null");
-    }
-  };
-
   return (
     <li>
       {props.id}{" "}

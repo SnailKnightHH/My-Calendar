@@ -1,7 +1,5 @@
 import "../css/calendar.css";
-import React, { useState } from "react";
-import TodoPage from "./TodoPage";
-import ErrorModel from "./ErrorModel";
+import React from "react";
 
 const Dayslot = (props) => {
   const switchToTaskLisks = () => {
@@ -19,19 +17,8 @@ const Dayslot = (props) => {
           <h2 className="day_slot_text">Finished: {props.finished_num}</h2>
         </button>
       )}
-
-      {/* {props.goToTasks && (
-        <TodoPage
-          detectError={props.detectError}
-          goToCalendar={props.switchToCalendar}
-        />
-      )}
-      {props.error && <ErrorModel onConfirm={props.clearError} />} */}
     </React.Fragment>
   );
 };
-
-// {goToTasks && <TodoPage detectError={detectError} goToCalendar={switchToCalendar}/>}
-// {error && <ErrorModel onConfirm={clearError} />}
 
 export default Dayslot;

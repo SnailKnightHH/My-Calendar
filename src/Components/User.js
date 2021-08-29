@@ -10,10 +10,8 @@ const User = (props) => {
 
   useEffect(() => {
     for (let id of all_ids) {
-      console.log(id);
       const item_fetched = localStorage.getItem(id);
       if (item_fetched != null) {
-        console.log("arrived");
         document.getElementById(id).value = item_fetched;
       }
     }

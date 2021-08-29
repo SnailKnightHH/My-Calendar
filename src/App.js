@@ -1,18 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Sidebar from "./Components/Sizebar";
-import Dayslot from "./Components/Dayslot";
 import Overallgrid from "./Components/OverallGrid";
 import CalendarGrid from "./Components/CalendarGrid";
-import TodoPage from "./Components/TodoPage";
 import ErrorModel from "./Components/ErrorModel";
-import WeekdaysBar from "./Components/WeekdaysBar";
-import User from "./Components/User";
-import AboutPage from "./Components/AboutPage";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+
+const AboutPage = React.lazy(() => import("./Components/AboutPage"));
+const TodoPage = React.lazy(() => import("./Components/TodoPage"));
+const User = React.lazy(() => import("./Components/User"));
 
 function App() {
   const [allSlots, setAllSlots] = useState([
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
+    { day_num: "#", task_num: 0, finished_num: 0 },
     { day_num: "#", task_num: 0, finished_num: 0 },
     { day_num: "#", task_num: 0, finished_num: 0 },
     { day_num: "#", task_num: 0, finished_num: 0 },
@@ -58,7 +63,7 @@ function App() {
   }, []);
 
   const updateDayNum = (startidx) => {
-    if (startidx < 0 || startidx > 4) {
+    if (startidx < 0 || startidx > 6) {
       alert("Invalid Number");
       return;
     }
@@ -339,6 +344,48 @@ function App() {
       id="34"
       updateSlotInfo={updateSlotInfo}
     />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="35"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="36"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="37"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="38"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="39"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="40"
+      updateSlotInfo={updateSlotInfo}
+    />,
+    <TodoPage
+      detectError={detectError}
+      goToCalendar={switchToCalendarFromTasks}
+      id="41"
+      updateSlotInfo={updateSlotInfo}
+    />,
   ];
 
   const [key, setkey] = useState(false);
@@ -369,26 +416,28 @@ function App() {
 
   return (
     <Overallgrid>
-      <Sidebar
-        switchToUser={userCalendarSwitch}
-        switchToAbout={AboutCalendarSwitch}
-        updateDayNum={updateDayNum}
-        MonthFinished={MonthFinished}
-      />
-      {!goToTasks && !goToUser && !goToAbout && (
-        <CalendarGrid
-          all_slots={allSlots}
-          switchToTaskLisks={switchToTaskLisks}
-          getKeyOfDaySlot={getKeyOfDaySlot}
+      <Suspense fallback={<p>Loading...</p>}>
+        <Sidebar
+          switchToUser={userCalendarSwitch}
+          switchToAbout={AboutCalendarSwitch}
+          updateDayNum={updateDayNum}
+          MonthFinished={MonthFinished}
         />
-      )}
-      {goToTasks && all_TodoPages[key]}
-      {/* {goToTasks && all_TodoPages[9]} */}
-      {error && <ErrorModel onConfirm={clearError} />}
-      {goToUser && !goToAbout && <User goBack={switchToCalendarFromUser} />}
-      {goToAbout && !goToUser && (
-        <AboutPage goBack={switchToCalendarFromAbout} />
-      )}
+        {!goToTasks && !goToUser && !goToAbout && (
+          <CalendarGrid
+            all_slots={allSlots}
+            switchToTaskLisks={switchToTaskLisks}
+            getKeyOfDaySlot={getKeyOfDaySlot}
+          />
+        )}
+        {goToTasks && all_TodoPages[key]}
+        {/* {goToTasks && all_TodoPages[9]} */}
+        {error && <ErrorModel onConfirm={clearError} />}
+        {goToUser && !goToAbout && <User goBack={switchToCalendarFromUser} />}
+        {goToAbout && !goToUser && (
+          <AboutPage goBack={switchToCalendarFromAbout} />
+        )}
+      </Suspense>
     </Overallgrid>
   );
 }
