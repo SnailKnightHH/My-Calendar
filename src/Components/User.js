@@ -20,7 +20,7 @@ const User = (props) => {
   }, []);
 
   const backToCalendar = () => {
-    props.goBack(false);
+    props.goBack();
   };
 
   const clearUserData = () => {
@@ -78,10 +78,7 @@ const User = (props) => {
         >
           Back
         </button>
-        <button
-          className="btn btn-primary UserPageBtn"
-          onClick={clearUserData}
-        >
+        <button className="btn btn-primary UserPageBtn" onClick={clearUserData}>
           Clear
         </button>
       </form>

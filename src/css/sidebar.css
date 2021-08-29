@@ -9,6 +9,16 @@
   align-self: center;
 }
 
+.first_day_of_month, .month_finished {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.monthFinishedBtn {
+  width: 4rem;
+}
+
 .sidebar {
   background-color: #e3f2fd;
   position: relative;
@@ -30,7 +40,8 @@
   width: 90%;
 }
 
-.sidebar-item .sidebar-btn {
+.sidebar-item .sidebar-btn,
+.sidebar-item .sidebar-Clear-btn {
   border: none;
   color: black;
   background: white;
@@ -41,4 +52,8 @@
 
 .sidebar-item .sidebar-btn:hover {
   background: rgb(13, 110, 253);
+}
+
+.sidebar-item .sidebar-Clear-btn:hover {
+  background: tomato;
 }

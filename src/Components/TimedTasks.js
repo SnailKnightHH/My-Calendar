@@ -6,145 +6,145 @@ const TimedTasks = (props) => {
     <ul className="Timed_ul">
       <TimeSlot
         id="05:00"
-        checkboxid="0500"
+        checkboxid="checkbox05:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="06:00"
-        checkboxid="0600"
+        checkboxid="checkbox06:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="07:00"
-        checkboxid="0700"
+        checkboxid="checkbox07:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="08:00"
-        checkboxid="0800"
+        checkboxid="checkbox08:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="09:00"
-        checkboxid="0900"
+        checkboxid="checkbox09:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="10:00"
-        checkboxid="1000"
+        checkboxid="checkbox10:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="11:00"
-        checkboxid="1100"
+        checkboxid="checkbox11:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="12:00"
-        checkboxid="1200"
+        checkboxid="checkbox12:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="13:00"
-        checkboxid="1300"
+        checkboxid="checkbox13:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="14:00"
-        checkboxid="1400"
+        checkboxid="checkbox14:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="15:00"
-        checkboxid="1500"
+        checkboxid="checkbox15:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="16:00"
-        checkboxid="1600"
+        checkboxid="checkbox16:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="17:00"
-        checkboxid="1700"
+        checkboxid="checkbox17:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="18:00"
-        checkboxid="1800"
+        checkboxid="checkbox18:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="19:00"
-        checkboxid="1900"
+        checkboxid="checkbox19:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="20:00"
-        checkboxid="2000"
+        checkboxid="checkbox20:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="21:00"
-        checkboxid="2100"
+        checkboxid="checkbox21:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="22:00"
-        checkboxid="2200"
+        checkboxid="checkbox22:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="23:00"
-        checkboxid="2300"
+        checkboxid="checkbox23:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="24:00"
-        checkboxid="2400"
+        checkboxid="checkbox24:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="01:00"
-        checkboxid="0100"
+        checkboxid="checkbox01:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="02:00"
-        checkboxid="0200"
+        checkboxid="checkbox02:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="03:00"
-        checkboxid="0300"
+        checkboxid="checkbox03:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />
       <TimeSlot
         id="04:00"
-        checkboxid="0400"
+        checkboxid="checkbox04:00"
         updateTimedTask={props.updateTimedTask}
         updateFinished={props.updateFinished}
       />

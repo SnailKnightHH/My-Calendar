@@ -7,6 +7,12 @@
   display: flex;
   flex-direction: column;
   border: 0.1rem solid black;
+  background: white;
+  transition: background 0.2s ease-out;
+}
+
+.day_slot:hover {
+  background: rgb(226, 230, 231);
 }
 
 .day_slot_text {

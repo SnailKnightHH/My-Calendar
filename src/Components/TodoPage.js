@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import UntimedTasks from "./UntimedTasks";
 import AddUntimedTask from "./AddUntimedTask";
 import TimedTasks from "./TimedTasks";
@@ -36,37 +36,36 @@ import "bootstrap/dist/css/bootstrap.css";
 const TodoPage = (props) => {
   // let timed_task_num = 0;
   // let untimed_task_num = 0;
-  let finished_num = 0;
-
+  const [timedTasksId, setTimedTasksId] = useState(0);
   const [timed_task_num, setTimed_task_num] = useState(0);
   const [untimed_task_num, setUntimed_task_num] = useState(0);
   const [finished_task_num, setFinished_task_num] = useState(0);
 
   const [timed_todo_list, setTimed_todo_list] = useState([
-    { time: "05:00", task: "" },
-    { time: "06:00", task: "" },
-    { time: "07:00", task: "" },
-    { time: "08:00", task: "" },
-    { time: "09:00", task: "" },
-    { time: "10:00", task: "" },
-    { time: "11:00", task: "" },
-    { time: "12:00", task: "" },
-    { time: "13:00", task: "" },
-    { time: "14:00", task: "" },
-    { time: "15:00", task: "" },
-    { time: "16:00", task: "" },
-    { time: "17:00", task: "" },
-    { time: "18:00", task: "" },
-    { time: "19:00", task: "" },
-    { time: "20:00", task: "" },
-    { time: "21:00", task: "" },
-    { time: "22:00", task: "" },
-    { time: "23:00", task: "" },
-    { time: "24:00", task: "" },
-    { time: "01:00", task: "" },
-    { time: "02:00", task: "" },
-    { time: "03:00", task: "" },
-    { time: "04:00", task: "" },
+    { time: "05:00", task: "", finished: false },
+    { time: "06:00", task: "", finished: false },
+    { time: "07:00", task: "", finished: false },
+    { time: "08:00", task: "", finished: false },
+    { time: "09:00", task: "", finished: false },
+    { time: "10:00", task: "", finished: false },
+    { time: "11:00", task: "", finished: false },
+    { time: "12:00", task: "", finished: false },
+    { time: "13:00", task: "", finished: false },
+    { time: "14:00", task: "", finished: false },
+    { time: "15:00", task: "", finished: false },
+    { time: "16:00", task: "", finished: false },
+    { time: "17:00", task: "", finished: false },
+    { time: "18:00", task: "", finished: false },
+    { time: "19:00", task: "", finished: false },
+    { time: "20:00", task: "", finished: false },
+    { time: "21:00", task: "", finished: false },
+    { time: "22:00", task: "", finished: false },
+    { time: "23:00", task: "", finished: false },
+    { time: "24:00", task: "", finished: false },
+    { time: "01:00", task: "", finished: false },
+    { time: "02:00", task: "", finished: false },
+    { time: "03:00", task: "", finished: false },
+    { time: "04:00", task: "", finished: false },
   ]);
 
   const updateTaskNum = () => {
@@ -78,8 +77,6 @@ const TodoPage = (props) => {
     }
     console.log(timed_task_num_local);
     return timed_task_num_local;
-    setTimed_task_num(timed_task_num_local);
-    console.log(timed_task_num);
   };
 
   const thisTasksArrName = "tasksArr" + props.id;
@@ -88,8 +85,10 @@ const TodoPage = (props) => {
   const [tasksArr, setTasksArr] = useState([]);
 
   useEffect(() => {
+    let finished_num = 0;
     let new_tasksArr = JSON.parse(localStorage.getItem(thisTasksArrName));
     //console.log(new_tasksArr);
+    console.log("timedTasksId" + timedTasksId);
     if (new_tasksArr != null) {
       setTasksArr(new_tasksArr);
       setUntimed_task_num(new_tasksArr.length);
@@ -98,6 +97,7 @@ const TodoPage = (props) => {
     let new_timedTasks = JSON.parse(localStorage.getItem(thisTimed_todo_list));
     console.log(new_timedTasks);
     let temp = 0;
+
     if (new_timedTasks != null) {
       setTimed_todo_list([...new_timedTasks]);
       console.log(timed_todo_list);
@@ -113,15 +113,35 @@ const TodoPage = (props) => {
       setTimed_task_num(temp);
       console.log(timed_task_num);
       console.log(temp);
+
+      console.log("finished_task_num: " + finished_task_num);
+
+      for (let slot of new_timedTasks) {
+        console.log(slot.time + " " + slot.finished);
+      }
+
+      //if (finished_task_num != 0) {
+      for (let slot of new_timedTasks) {
+        if (slot.finished) {
+          document.getElementById("checkbox" + slot.time).checked = true;
+          finished_num++;
+        }
+      }
     }
     console.log(untimed_task_num + " " + temp);
+
+    // }
 
     props.updateSlotInfo(untimed_task_num + temp, finished_num, props.id);
   }, []);
 
   const addingTask = (task_str) => {
-    const new_task = { id: Math.random().toString(), task: task_str };
-
+    const new_task = {
+      id: timedTasksId,
+      task: task_str,
+      finished: false,
+    };
+    setTimedTasksId((prevID) => prevID + 1);
     setTasksArr((prevTasksArr) => {
       return [...prevTasksArr, new_task];
     });
@@ -141,7 +161,7 @@ const TodoPage = (props) => {
     // FOR SOME REASON untimed_task_num IS NOT UPDATED IMMEDIATELY
     props.updateSlotInfo(
       tasksArr.length + timed_task_num,
-      finished_num,
+      finished_task_num,
       props.id
     );
   }, [tasksArr]);
@@ -162,6 +182,7 @@ const TodoPage = (props) => {
   const clearThisEntry = () => {
     localStorage.removeItem(thisTasksArrName);
     localStorage.removeItem(thisTimed_todo_list);
+    setTimedTasksId(0);
     const message = "Entry Cleared\nRefresh to See Changes";
     alert(message);
   };
@@ -179,21 +200,103 @@ const TodoPage = (props) => {
     console.log(untimed_task_num + " " + timed_task_num);
     props.updateSlotInfo(
       timed_task_num + untimed_task_num,
-      finished_num,
+      finished_task_num,
       props.id
     );
   };
 
-  const updateFinished = (id) => {
+  const updateFinishedTimed = (id) => {
     console.log(id);
-    //  if (document.getElementById(id) != null) {
-    // if (document.getElementById(id)[1].checked) {
-    //   alert("Checked");
-    // }
-    //  } else {
-    //    console.log("null");
-    //  }
+    if (document.getElementById(id) != null) {
+      if (document.getElementById(id).checked) {
+        setFinished_task_num(
+          (prevFinished_task_num) => prevFinished_task_num + 1
+        );
+        console.log(finished_task_num + 1);
+        console.log("update finished_task_num: " + finished_task_num);
+      } else {
+        setFinished_task_num(
+          (prevFinished_task_num) => prevFinished_task_num - 1
+        );
+        console.log("update finished_task_num: " + finished_task_num);
+      }
+      console.log("update finished_task_num: " + finished_task_num);
+      props.updateSlotInfo(
+        timed_task_num + untimed_task_num,
+        finished_task_num + 1,
+        props.id
+      );
+      const whichCheckBox = id.substr(8);
+      console.log(whichCheckBox);
+      for (let slot of timed_todo_list) {
+        if (slot.time === whichCheckBox) {
+          slot.finished = true;
+          setTimed_todo_list(timed_todo_list);
+          localStorage.setItem(
+            thisTimed_todo_list,
+            JSON.stringify(timed_todo_list)
+          );
+          break;
+        }
+      }
+      for (let slot of timed_todo_list) {
+        console.log(slot.time + " " + slot.finished);
+      }
+    }
   };
+
+  const updateFinishedUntimed = (id) => {
+    console.log(id);
+    if (document.getElementById(id) != null) {
+      if (document.getElementById(id).checked) {
+        setFinished_task_num(
+          (prevFinished_task_num) => prevFinished_task_num + 1
+        );
+        console.log(finished_task_num + 1);
+        console.log("update finished_task_num: " + finished_task_num);
+      } else {
+        setFinished_task_num(
+          (prevFinished_task_num) => prevFinished_task_num - 1
+        );
+        console.log("update finished_task_num: " + finished_task_num);
+      }
+      console.log("update finished_task_num: " + finished_task_num);
+      props.updateSlotInfo(
+        timed_task_num + untimed_task_num,
+        finished_task_num + 1,
+        props.id
+      );
+      tasksArr[id[15]].finished = true;
+      localStorage.setItem(thisTasksArrName, JSON.stringify(tasksArr));
+      setTasksArr(tasksArr);
+    }
+  };
+
+  // useEffect((id) => {
+  //     console.log(id);
+  //     if (document.getElementById(id) != null) {
+  //       if (document.getElementById(id).checked) {
+  //         setFinished_task_num(
+  //           (prevFinished_task_num) => prevFinished_task_num + 1
+  //         );
+  //         console.log(finished_task_num + 1);
+  //         console.log("update finished_task_num: " + finished_task_num);
+  //       } else {
+  //         setFinished_task_num(
+  //           (prevFinished_task_num) => prevFinished_task_num - 1
+  //         );
+  //         console.log("update finished_task_num: " + finished_task_num);
+  //       }
+  //       console.log("update finished_task_num: " + finished_task_num);
+  //       props.updateSlotInfo(
+  //         timed_task_num + untimed_task_num,
+  //         finished_task_num + 1,
+  //         props.id
+  //       );
+  //     }
+  //   },
+  //   [timed_todo_list]
+  // );
 
   return (
     <div className="TodoPage">
@@ -205,12 +308,15 @@ const TodoPage = (props) => {
         <TimedTasks
           timed_todo_list={timed_todo_list}
           updateTimedTask={updateTimedTask}
-          updateFinished={updateFinished}
+          updateFinished={updateFinishedTimed}
         />
 
         <div>
           <AddUntimedTask addTask={addingTask} detectError={has_error} />
-          <UntimedTasks untimedTasks={tasksArr} />
+          <UntimedTasks
+            untimedTasks={tasksArr}
+            updateFinished={updateFinishedUntimed}
+          />
         </div>
       </div>
 
@@ -218,7 +324,7 @@ const TodoPage = (props) => {
         <button className="btn btn-primary Back_btn" onClick={goBackToCalendar}>
           Back
         </button>
-        <button className="btn btn-primary clear_btn" onClick={clearThisEntry}>
+        <button className="btn btn-danger clear_btn" onClick={clearThisEntry}>
           Clear
         </button>
       </div>
