@@ -6,36 +6,8 @@ import useDidMountEffect from "./useDidMountEffect";
 import "../css/TodoPage.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-// let timed_todo_list = [
-//   { time: "05:00", task: "" },
-//   { time: "06:00", task: "" },
-//   { time: "07:00", task: "" },
-//   { time: "08:00", task: "" },
-//   { time: "09:00", task: "" },
-//   { time: "10:00", task: "" },
-//   { time: "11:00", task: "" },
-//   { time: "12:00", task: "" },
-//   { time: "13:00", task: "" },
-//   { time: "14:00", task: "" },
-//   { time: "15:00", task: "" },
-//   { time: "16:00", task: "" },
-//   { time: "17:00", task: "" },
-//   { time: "18:00", task: "" },
-//   { time: "19:00", task: "" },
-//   { time: "20:00", task: "" },
-//   { time: "21:00", task: "" },
-//   { time: "22:00", task: "" },
-//   { time: "23:00", task: "" },
-//   { time: "24:00", task: "" },
-//   { time: "01:00", task: "" },
-//   { time: "02:00", task: "" },
-//   { time: "03:00", task: "" },
-//   { time: "04:00", task: "" },
-// ];
 
 const TodoPage = (props) => {
-  // let timed_task_num = 0;
-  // let untimed_task_num = 0;
   const [timedTasksId, setTimedTasksId] = useState(0);
   const [timed_task_num, setTimed_task_num] = useState(0);
   const [untimed_task_num, setUntimed_task_num] = useState(0);
