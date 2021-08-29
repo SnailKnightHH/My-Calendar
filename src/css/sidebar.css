@@ -69,6 +69,14 @@
   .Todo_main_title {
     font-size: 1.2rem;
   }
+
+  .sidebar {
+    height: 100vh;
+  }
+
+  .ToDoPageSideBar.sidebar {
+    height: 160vh;
+  }
 }
 
 @media screen and (min-width: 1024px) {
