@@ -422,6 +422,7 @@ function App() {
           switchToAbout={AboutCalendarSwitch}
           updateDayNum={updateDayNum}
           MonthFinished={MonthFinished}
+          ifGoToTasks={goToTasks}
         />
         {!goToTasks && !goToUser && !goToAbout && (
           <CalendarGrid
@@ -431,7 +432,6 @@ function App() {
           />
         )}
         {goToTasks && all_TodoPages[key]}
-        {/* {goToTasks && all_TodoPages[9]} */}
         {error && <ErrorModel onConfirm={clearError} />}
         {goToUser && !goToAbout && <User goBack={switchToCalendarFromUser} />}
         {goToAbout && !goToUser && (
@@ -441,5 +441,5 @@ function App() {
     </Overallgrid>
   );
 }
-//props.goToTasks  props.error  props.detectError props.switchToCalendar props.clearError
+
 export default App;

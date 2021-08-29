@@ -25,7 +25,7 @@ const Sidebar = (props) => {
   };
 
   return (
-    <nav className="sidebar">
+    <nav className={`sidebar ${props.ifGoToTasks ? "ToDoPageSideBar" : ""}`}>
       <img className="userImage" src={CalendarIcon} alt="Default" />
       <hr></hr>
       <ul className="sidebar-ul">

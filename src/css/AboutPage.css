@@ -4,14 +4,53 @@
   align-items: center;
 }
 
-.AboutPageParagraph {
-  margin: 2rem 7rem;
-  font-size: large;
-}
-
 .DailyPlannerImage {
-  width: 20rem;
-  height: 26rem;
   object-fit: cover;
   align-self: center;
+}
+
+@media screen and (min-width: 750px) {
+  .DailyPlannerImage {
+    width: 6rem;
+  }
+
+  .AboutPageParagraph {
+    font-size: small;
+    margin: 0.4rem 2rem;
+  }
+
+  .AboutPageTitle {
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .DailyPlannerImage {
+    width: 8rem;
+  }
+
+  .AboutPageParagraph {
+    font-size: medium;
+    margin: 0.7rem 3rem;
+  }
+
+  .AboutPageTitle {
+    margin-top: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .DailyPlannerImage {
+    width: 20rem;
+    height: 26rem;
+  }
+
+  .AboutPageParagraph {
+    font-size: large;
+    margin: 2rem 7rem;
+  }
+
+  .AboutPageTitle {
+    margin-top: 2rem;
+  }
 }

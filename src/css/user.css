@@ -7,7 +7,6 @@
 .userPageGrid {
   display: grid;
   grid-template: repeat(2, 20fr) repeat(3, 30fr) / repeat(2, 50fr);
-  margin-top: 2rem;
   align-items: flex-start;
 }
 
@@ -27,4 +26,22 @@
 
 .UserPageBtn {
   margin-top: 4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .userPageGrid {
+    margin-top: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .userPageGrid {
+    margin-top: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .userPageGrid {
+    margin-top: 2rem;
+  }
 }

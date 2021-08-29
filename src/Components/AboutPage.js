@@ -5,7 +5,7 @@ import DailyPlannerReference from "../Image/Daily-Planner-Reference.jpg";
 const AboutPage = (props) => {
   return (
     <section className="AboutMainPage">
-      <h1 style={{ marginTop: "2rem" }}>About</h1>
+      <h1 className="AboutPageTitle">About</h1>
       <p className="AboutPageParagraph">
         I know, we’ve all been there… One day motivation kicked in, and we
         bought 10 of those daily planner notebooks, swearing to live each day to

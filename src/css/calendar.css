@@ -25,5 +25,35 @@
 
 .CalendarGrid {
   display: grid;
-  grid-template: 10fr repeat(6, 15fr) / repeat(7, 12fr);
+  grid-template: 10vh repeat(6, 15vh) / repeat(7, 12vw);
+}
+
+@media screen and (min-width: 750px) {
+  .day_slot_text {
+    font-size: small;
+  }
+
+  .WeekDay {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .day_slot_text {
+    font-size: medium;
+  }
+
+  .WeekDay {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .day_slot_text {
+    font-size: x-large;
+  }
+
+  .WeekDay {
+    font-size: 2.5rem;
+  }
 }
